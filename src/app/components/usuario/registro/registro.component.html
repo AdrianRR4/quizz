@@ -7,16 +7,31 @@
             <form [formGroup]="registerForm" (ngSubmit)="register()" >
                 <div class="div mb-3">
                      <input type="text" formControlName="user" class="form-control form-control-lg" placeholder="Correo"> 
+                     <span class="text-danger" *ngIf="registerForm.get('user')?.hasError('required')&& registerForm.get('user')?.touched">
+                        El correo <strong>es requerido</strong>
+                     </span>
+                     <span class="text-danger" *ngIf="registerForm.get('user')?.hasError('email')&& registerForm.get('user')?.touched">
+                        Correo <strong>invalido</strong>
+                     </span>
                 </div>
                 <div class="mb-3">
-                    <input type="text" formControlName="password" class="form-control form-control-lg" placeholder="Contraseña">
+                    <input type="password" formControlName="password" class="form-control form-control-lg" placeholder="Contraseña">
+                    <span class="text-danger" *ngIf="registerForm.get('password')?.hasError('required')&& registerForm.get('password')?.touched">
+                        La constraseña <strong>es requerida</strong>
+                     </span>
+                     <span class="text-danger" *ngIf="registerForm.get('password')?.hasError('minlength')&& registerForm.get('password')?.touched">
+                        Ingrese <strong>seis caracteres</strong>
+                     </span>
                 </div>
                <div class="mb-3">
-                   <input type="text" formControlName="repeatPassword" class="form-control form-control-lg" placeholder="Repetir contraseña">
+                   <input type="password" formControlName="repeatPassword" class="form-control form-control-lg" placeholder="Repetir contraseña">
+                   <span class="text-danger" *ngIf="registerForm.hasError('notSame')">
+                       Contraseñas <strong>distintas</strong>
+                   </span>
                </div>
            </form>
            <button routerLink="/usuario" class="btn btn-secondary btn-lg">Volver</button>
-          <button type="submit" class="btn btn-primary btn-lg float-end">Aceptar</button>
+          <button type="submit" class="btn btn-primary btn-lg float-end" [disabled]="registerForm.invalid">Aceptar</button>
            </div>
           
        </div>
