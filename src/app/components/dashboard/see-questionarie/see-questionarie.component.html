@@ -1,0 +1,19 @@
+
+    <div *ngIf="loading"  class="d-flex justify-content-center mt-5">
+        <app-spiner></app-spiner>
+    </div>
+
+    <div *ngIf="questionnarie !=undefined" class="container mt-3">
+       
+       
+       <div  class="d-flex justify-content-center mt-5">
+ <div class="card">
+           <div class="card-body text-center">
+           <h2 class="titulo"> {{questionnarie.title|uppercase}}</h2> 
+            
+           <h4> {{questionnarie.description}}</h4>   
+           </div>
+        </div>
+       </div> 
+      
+    </div>

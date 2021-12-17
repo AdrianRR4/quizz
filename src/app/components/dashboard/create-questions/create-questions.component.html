@@ -1,0 +1,80 @@
+
+<div *ngIf="showError"  class="alert alert-danger text-center" role="alert">
+    Llene los campos obligatorios
+  </div>
+<div class="container">
+    <div class="row mt-3 mb-5">
+        <form [formGroup]="createQuestionsForm" (ngSubmit)="addQuestion()">
+            <input type="text" formControlName="subject" class="form-control form-control-lg inputPregunta" placeholder="Ingrese pregunta" maxlength="150">
+            <div class="row mt-5">
+            <div class="col-lg-6 text-center">
+                <div class="fondo-item">
+                    <p class="tituloSegundosPuntos">Segundos</p>
+                    <p class="segPuntos">{{seg}}</p>
+                    <div>
+                        <i class="fas fa-minus sumaResta" (click)="sumarRestarSegundos(-1)"></i>
+                        <i class="fas fa-plus sumaResta" (click)="sumarRestarSegundos(1)"></i>
+                    </div>
+                </div>  
+            </div>
+            <div class="col-lg-6 text-center">
+                <div  class="fondo-item">
+                    <p class="tituloSegundosPuntos">{{points}}</p>
+                    <p class="segPuntos">Puntos</p>
+                      <input formControlName="points" type="range" class="form-range" min="0" max="2000">
+                 </div>
+               
+            </div>
+            
+        
+        </div>
+            <div class="row mt-5">
+                <div class="col-6">
+                    <div formGroupName="answer1" class="input-group">
+                        <input formControlName="name" type="text" class="type form-control inputRespuesta" placeholder="Agregar respuesta 1">
+                        <div (click)="isCorrect('1')" class="input-group-text">
+                        <i [ngClass]="{'far fa-circle':getStateOfAnswer('answer1')==false,
+                                      'fas fa-check-circle animate__animated animate__heartBeat':getStateOfAnswer('answer1')==true }"> </i>
+                        </div>
+                    </div>
+                </div>
+                <div  class="col-6">
+                    <div formGroupName="answer2" class="input-group">
+                        <input formControlName="name" type="text" class="type form-control inputRespuesta" placeholder="Agregar respuesta 2">
+                        <div  (click)="isCorrect('2')" class="input-group-text">
+                        <i [ngClass]="{'far fa-circle':getStateOfAnswer('answer2')==false,
+                        'fas fa-check-circle animate__animated animate__heartBeat':getStateOfAnswer('answer2')==true }"> </i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row mt-3">
+                <div class="col-6">
+                    <div formGroupName="answer3" class="input-group"  >
+                        <input type="text" formControlName="name" class="type form-control inputRespuesta" placeholder="Agregar respuesta 3 (opcional) ">
+                        <div (click)="isCorrect('3')" class="input-group-text">
+                        <i [ngClass]="{'far fa-circle':getStateOfAnswer('answer3')==false,
+                        'fas fa-check-circle animate__animated animate__heartBeat':getStateOfAnswer('answer3')==true }"> </i>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-6">
+                    <div  formGroupName="answer4" class="input-group">
+                        <input  formControlName="name" type="text" class="type form-control inputRespuesta" placeholder="Agregar respuesta 4 (opcional)">
+                        <div (click)="isCorrect('4')" class="input-group-text">
+                        <i [ngClass]="{'far fa-circle':getStateOfAnswer('answer4')==false,
+                        'fas fa-check-circle animate__animated animate__heartBeat':getStateOfAnswer('answer4')==true }"> </i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row mt-3">
+                <div class="col-12 text-center" >
+                    <button class="btn-principal">Agregar pregunta</button>
+                </div>
+            </div>
+        </form>
+
+        <app-list-questions></app-list-questions>
+    </div>
+</div>

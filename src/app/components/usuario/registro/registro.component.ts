@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
+import { ErrorService } from '../../../services/error.service';
 
 @Component({
   selector: 'app-registro',
@@ -14,7 +15,12 @@ export class RegistroComponent implements OnInit {
   registerForm:FormGroup;
   loading=false;
   
-  constructor(private fb:FormBuilder, private auth:AngularFireAuth, private router:Router,private toastr: ToastrService) { 
+  constructor(private fb:FormBuilder, 
+              private auth:AngularFireAuth, 
+              private router:Router,
+              private toastr: ToastrService,
+              private errorService:ErrorService,
+               ) { 
 
     this.registerForm=this.fb.group({
       user:['',[Validators.required, Validators.email]],
@@ -35,12 +41,14 @@ export class RegistroComponent implements OnInit {
 
     this.auth.createUserWithEmailAndPassword(user,password).then(response=>{
       console.log(response);
-      this.toastr.success('Usuario registrado!', 'Completado!');
+      response.user?.sendEmailVerification();
+      this.toastr.success('Enviamos un correo electrónico para verificar su cuenta! ', 'Completado!');
       this.router.navigate(['/usuario']);
     }).catch(error=>{
       this.loading=false;
       console.log(error);
-      this.toastr.error( this.error(error.code),'Error!')
+      this.toastr.error( this.errorService.error(error.code),'Error!');
+      this.registerForm.reset();
     })
  }
 
@@ -54,6 +62,7 @@ export class RegistroComponent implements OnInit {
     return pass===confirmPass ? null:{notSame:true}
   }
 
+  /*
   error(code: string):string
   {
       
@@ -78,7 +87,9 @@ export class RegistroComponent implements OnInit {
           return 'Error desconocido'
 
       }
+     
 
     }
+     */
 
 }

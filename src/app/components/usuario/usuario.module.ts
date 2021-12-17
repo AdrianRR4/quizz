@@ -7,6 +7,7 @@ import { RegistroComponent } from './registro/registro.component';
 import { SharedModule } from '../shared/shared.module';
 import { ReactiveFormsModule } from '@angular/forms';
 import { RecuperarPasswordComponent } from './recuperar-password/recuperar-password.component';
+import { VerificaCorreoComponent } from './verifica-correo/verifica-correo.component';
 
 
 
@@ -15,13 +16,15 @@ import { RecuperarPasswordComponent } from './recuperar-password/recuperar-passw
   declarations: [
     LoginComponent,
     RegistroComponent,
-    RecuperarPasswordComponent
+    RecuperarPasswordComponent,
+    VerificaCorreoComponent
 
   ],
   imports: [
     CommonModule,
     UsuarioRoutingModule,
     SharedModule,
+    ReactiveFormsModule
 
     
   ]

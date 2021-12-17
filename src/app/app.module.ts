@@ -10,10 +10,11 @@ import { SharedModule } from './components/shared/shared.module';
 import {AngularFireAuthModule} from '@angular/fire/compat/auth'
 import { environment } from 'src/environments/environment';
 import { AngularFireModule } from '@angular/fire/compat';
-
+import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
 
 import { ToastrModule } from 'ngx-toastr';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { DashboardModule } from './components/dashboard/dashboard.module';
 
 @NgModule({
   declarations: [
@@ -28,8 +29,10 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     FormsModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireAuthModule,
+    AngularFireAuthModule,
     ToastrModule.forRoot(),
-     BrowserAnimationsModule
+    BrowserAnimationsModule,
+    DashboardModule
   
   ],
   providers: [],

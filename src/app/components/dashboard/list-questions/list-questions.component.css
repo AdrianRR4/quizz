@@ -1,0 +1,17 @@
+.tituloPregunta{
+    text-align: center;
+    font-size: 20;
+    font-family: 'Noto Serif', serif;
+}
+.classCorrecta{
+    background-color:#131d2d;
+    color:white;
+}
+
+.fas{
+    padding-top: 15px;
+    text-align: center;
+    font-size: 30px;
+    cursor: pointer;
+    color: red;
+}

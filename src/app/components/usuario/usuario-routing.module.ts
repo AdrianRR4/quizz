@@ -4,6 +4,7 @@ import { InicioComponent } from '../inicio/inicio.component';
 import { LoginComponent } from './login/login.component';
 import { RecuperarPasswordComponent } from './recuperar-password/recuperar-password.component';
 import { RegistroComponent } from './registro/registro.component';
+import { VerificaCorreoComponent } from './verifica-correo/verifica-correo.component';
 
 const routes: Routes = [
   {
@@ -14,6 +15,10 @@ const routes: Routes = [
   },
   {
     path:'register', component:RegistroComponent
+  },
+  { 
+    path:'verifyEmail', component:VerificaCorreoComponent
+
   }
 
 
