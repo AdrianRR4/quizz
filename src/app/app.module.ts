@@ -16,10 +16,12 @@ import { ToastrModule } from 'ngx-toastr';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { DashboardModule } from './components/dashboard/dashboard.module';
 
+
 @NgModule({
   declarations: [
     AppComponent,
     InicioComponent,
+
 
   ],
   imports: [  

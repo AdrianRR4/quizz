@@ -1,7 +1,10 @@
  
- <div class="contenedor">
+ <div *ngIf="loading" class="d-flex justify-content-center mt-5">
+   <app-spiner></app-spiner>
+</div>
+ <div *ngIf="!loading" class="contenedor">
     <div *ngIf="error" class="alert alert-danger" role="alert">
-       <strong>Porfavor ingresa <link rel="manifest" href="./manifest.json"></strong>
+       <strong>{{errorText}}<link rel="manifest" href="./manifest.json"></strong>
       </div>
 <input [(ngModel)]="pin" type="text" class="form-control input-ingresar mb-3"  placeholder="Pin del juego"> 
 

@@ -8,11 +8,11 @@ export class Question{
     listAnswer:Answers[];
 
 
-    constructor(title:string, points:number, seconds:number, listAnswers:Answers[]){
+    constructor(title:string, points:number, seconds:number, listAnswer:Answers[]){
         this.title=title;
         this.points=points;
         this.seconds=seconds;
-        this.listAnswer=listAnswers;
+        this.listAnswer=listAnswer;
 
     }
 

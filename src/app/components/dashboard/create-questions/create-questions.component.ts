@@ -46,7 +46,7 @@ export class CreateQuestionsComponent implements OnInit {
     return;
     }
 
-    let listAnswer:Answers[]=[]
+    let listAnswers:Answers[]=[]
     // obtener respuesta 1
 
     const resTitle1=this.createQuestionsForm.get('answer1')?.get('name')?.value;
@@ -56,7 +56,7 @@ export class CreateQuestionsComponent implements OnInit {
       description:resTitle1,
       isRight:right1
     }
-    listAnswer.push(answer1);
+    listAnswers.push(answer1);
 
     //obtener respuesta 2
 
@@ -67,7 +67,7 @@ export class CreateQuestionsComponent implements OnInit {
       description:resTitle2,
       isRight:right2
     }
-    listAnswer.push(answer2);
+    listAnswers.push(answer2);
 
     //obtener respuesta 3
 
@@ -80,7 +80,7 @@ export class CreateQuestionsComponent implements OnInit {
     }
 
     if(resTitle3 !==''){
-      listAnswer.push(answer3);
+      listAnswers.push(answer3);
     }
     //respuesta 4
     const resTitle4=this.createQuestionsForm.get('answer4')?.get('name')?.value;
@@ -91,7 +91,7 @@ export class CreateQuestionsComponent implements OnInit {
       isRight:right4
     }
     if(resTitle4!==''){
-       listAnswer.push(answer4);
+       listAnswers.push(answer4);
     }
    
      // console.log('contenido de lista de respuestas',listAnswer)
@@ -107,7 +107,7 @@ export class CreateQuestionsComponent implements OnInit {
       title:title,
       seconds:seconds,
       points:points,
-      listAnswer:listAnswer
+      listAnswer:listAnswers
 
      }
      this.quizzService.addQuestion(question);
