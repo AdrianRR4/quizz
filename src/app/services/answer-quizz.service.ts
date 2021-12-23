@@ -8,6 +8,7 @@ import { Questionnarie } from '../models/Questionnarie';
 })
 export class AnswerQuizzService {
 
+  nameparticipante='';
   questionnarie:Questionnarie |  undefined;
 
   constructor(private angularFirestore:AngularFirestore) { }
